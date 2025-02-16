@@ -12,12 +12,12 @@ rooms = {
     "два": set()
 }
 
-@socketio.on('connect')
+@socketio.on('connect') #обработка подключения клиента
 def handle_connect():
     print(f'Client connected: {request.sid}')
-    socketio.emit('rooms_list', list(rooms.keys()), room=request.sid)
+    socketio.emit('rooms_list', list(rooms.keys()), room=request.sid) #отправляет список комнат клиенту
 
-@socketio.on('join')
+@socketio.on('join') #обработка присоединения к комнате
 def handle_join(data):
     room = data.get('room')
     if room in rooms:
@@ -44,7 +44,6 @@ def handle_message(data):
             {'message': message, 'sender': request.sid}, 
             room=room
         )
-
 
 
 if __name__ == '__main__':
