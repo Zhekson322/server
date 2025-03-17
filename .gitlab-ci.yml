@@ -1,0 +1,10 @@
+stages:
+    - build
+
+stage_build:
+    stage: build
+    image: ubuntu:20.04
+    tags:
+        - gitlab
+    script:
+        - echo "Hello world"
