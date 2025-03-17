@@ -5,4 +5,4 @@ stage_build:
     stage: build
     image: ubuntu:20.04
     script:
-        - echo "Hello world"
+        - echo "Hello world22"
