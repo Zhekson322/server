@@ -7,4 +7,4 @@ stage_build:
     tags:
         - build
     script:
-        - echo "Hello worlwwwwd22"
+        - echo "Hello worlwwbuild	buildwwd22"
