@@ -5,6 +5,6 @@ stage_build:
     stage: build
     image: ubuntu:20.04
     tags:
-        - test
+        - build_shell
     script:
-        - echo "Hello worlwwbuild	buildwwd22"
+        - echo "Hello wor"
