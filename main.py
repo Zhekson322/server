@@ -49,4 +49,5 @@ def handle_message(data):
 if __name__ == '__main__':
     # Получаем хост из переменной окружения HOST, если не задан - используем 0.0.0.0
     host = os.getenv('HOST', '0.0.0.0')
-    socketio.run(app, host=host, port=5000)
+    port = os.getenv('PORT',5000)
+    socketio.run(app, host=host, port=port,allow_unsafe_werkzeug=True)
