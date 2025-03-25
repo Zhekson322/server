@@ -4,6 +4,10 @@ import threading
 sio = socketio.Client()
 current_room = None
 
+def get_ip():
+    ip = input("Введите ip server'a: ")
+    return(ip)
+
 def send_message():
     try:
         while True:
@@ -43,5 +47,6 @@ def disconnect():
     print("Disconnected from server")
 
 if __name__ == '__main__':
-    sio.connect('http://localhost:5000')
+    ip = get_ip()
+    sio.connect(f'http://{ip}')
     sio.wait()
