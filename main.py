@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask_socketio import SocketIO, join_room, leave_room
 import os  # Импортируем модуль для работы с переменными окружения
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -47,7 +48,13 @@ def handle_message(data):
 
 
 if __name__ == '__main__':
-    # Получаем хост из переменной окружения HOST, если не задан - используем 0.0.0.0
-    host = os.getenv('HOST', '0.0.0.0')
-    port = os.getenv('PORT',5000)
-    socketio.run(app, host=host, port=port,allow_unsafe_werkzeug=True)
+    load_dotenv()
+    LOGIN = os.getenv("LOGIN")
+    PASSWORD = os.getenv("PASSWORD")
+    if os.getenv('LOGIN') == "Zheka" and os.getenv('PASSWORD') == "1234":
+        host = os.getenv('HOST', '0.0.0.0')
+        print("В переменной HOST - " + str(os.getenv('HOST')))
+        port = os.getenv('PORT',5000)
+        socketio.run(app, host=host, port=port,allow_unsafe_werkzeug=True)
+    else:
+        print(f"Переменная LOGIN равна {os.getenv('LOGIN')}, а переменная PASSWORD = {os.getenv('PASSWORD')}")
