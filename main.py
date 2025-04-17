@@ -46,7 +46,7 @@ def handle_message(data):
             room=room
         )
 
-
+#Лиля внесла изменения
 if __name__ == '__main__':
     load_dotenv()
     LOGIN = os.getenv("LOGIN")
