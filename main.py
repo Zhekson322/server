@@ -53,7 +53,8 @@ if __name__ == '__main__':
     PASSWORD = os.getenv("PASSWORD")
     if os.getenv('LOGIN') == "Zheka" and os.getenv('PASSWORD') == "1234":
         host = os.getenv('HOST', '0.0.0.0')
-        print("В переменной HOST - " + str(os.getenv('HOST')))
+        print(f"Переменная LOGIN равна {os.getenv('LOGIN')}, а переменная PASSWORD = {os.getenv('PASSWORD')} сервер запускается")
+        print("В переменной PORT - " + str(os.getenv('PORT')))
         port = os.getenv('PORT',5000)
         socketio.run(app, host=host, port=port,allow_unsafe_werkzeug=True)
     else:
